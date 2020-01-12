@@ -1,0 +1,74 @@
+body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
+
+.fluid-thumbnail-grid-image-overlay{
+    /*display: none;*/
+}
+
+
+.fluid-thumbnail-grid-image-price-container {
+    bottom: 0;
+    top: unset;
+    left: 0;
+    right: unset;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+}
+
+.home-fluid-thumbnail-grid-author-avatar-image{
+    display: none;
+}
+
+.fluid-thumbnail-grid-image-title{
+    position: relative;
+    color: #3c3c3c;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 5px;
+    font-size: 14px;
+
+}
+.home-fluid-thumbnail-grid-author-name{
+    display: none;
+}
+
+.home-fluid-thumbnail-grid-author{
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #e7eaf3;
+    border-top: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden;
+}
+
+.price-container{
+    float: left;
+}
+
+.info-container{
+    float: left;
+}
+
+.fluid-thumbnail-grid-image-image-container .fluid-thumbnail-grid-image-title,
+.fluid-thumbnail-grid-image-image-container .fluid-thumbnail-grid-image-price-container,
+.home-fluid-thumbnail-grid-author .home-fluid-thumbnail-grid-author-name{
+    visibility: hidden;
+}
+
+.customized .fluid-thumbnail-grid-image-title,
+.customized .fluid-thumbnail-grid-image-price-container,
+.customized .home-fluid-thumbnail-grid-author .home-fluid-thumbnail-grid-author-name{
+    visibility: visible !important;
+}
+
+.fluid-thumbnail-grid-image-image{
+    border-radius: 0;
+}
+
+
+.city-label.icon-with-text-container .icon-part {
+    position: absolute;
+    top: 0.45em;
+}

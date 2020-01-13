@@ -43,9 +43,7 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
     overflow: hidden;
 }
 
-.price-container{
-    float: left;
-}
+.fluid-thumbnail-grid-image-price-container{float: left;}
 
 .info-container{
     float: left;

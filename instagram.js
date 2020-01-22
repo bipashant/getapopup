@@ -2,19 +2,19 @@ $(document).ready(function(){
     if($("#hero__hero__0").length) {
         var instaImages = [
             {
-                image: 'https://6df2b785.ngrok.io/getapopup/images/1.jpg',
+                image: 'https://raw.githubusercontent.com/bipashant/getapopup/master/1.jpg',
                 url: 'https://www.instagram.com/getapopup/'
             },
             {
-                image: 'https://6df2b785.ngrok.io/getapopup/images/2.jpg',
+                image: 'https://raw.githubusercontent.com/bipashant/getapopup/master/2.jpg',
                 url: 'https://www.instagram.com/getapopup/'
             },
             {
-                image: 'https://6df2b785.ngrok.io/getapopup/images/3.jpg',
+                image: 'https://raw.githubusercontent.com/bipashant/getapopup/master/3.jpg',
                 url: 'https://www.instagram.com/getapopup/'
             },
             {
-                image: 'https://6df2b785.ngrok.io/getapopup/images/4.jpg',
+                image: 'https://raw.githubusercontent.com/bipashant/getapopup/master/4.jpg',
                 url: 'https://www.instagram.com/getapopup/'
             }
         ];

@@ -160,7 +160,7 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
 .instafeed-overlay::before, .instafeed-shopify .instafeed-overlay::before {
     content: ' ';
     opacity: 1;
-    background: url(https://6df2b785.ngrok.io/getapopup/images/instagram-icon.svg) no-repeat center center;
+    background: url(https://raw.githubusercontent.com/bipashant/getapopup/master/instagram-icon.svg) no-repeat center center;
     background-size: 20px 20px;
     position: absolute;
     z-index: 100;

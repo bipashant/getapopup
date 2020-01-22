@@ -1,108 +1,132 @@
 
 $(document).ready(function(){
-    if($(".home-fluid-thumbnail-grid-narrow").length){
-        function customizeGrid() {
-            $(".home-fluid-thumbnail-grid").css("visibility", "visible");
-            $(".home-fluid-thumbnail-grid-item").each(function (index) {
-                if (!$(this).hasClass("customized")) {
-                    $(".home-fluid-thumbnail-grid-author-avatar").remove();
-                    $(".home-fluid-thumbnail-grid-author-name").remove();
+    if( $(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length){
+        listingData = {};
+        $.get("https://api.myjson.com/bins/ihyt6", function(data, textStatus, jqXHR) {
+            console.log(data);
+            listingData = data;
+        });
 
-                    var title = $(this).find(".fluid-thumbnail-grid-image-title");
-                    var authorContainer = $(this).find(".home-fluid-thumbnail-grid-author");
-                    var authorLink = $(this).find(".home-fluid-thumbnail-grid-author-name");
-                    var priceTag = $(this).find(".fluid-thumbnail-grid-image-price-container");
-                    authorContainer.prepend(title);
-                    authorContainer.append(priceTag);
+        if($(".home-fluid-thumbnail-grid-narrow").length){
+            function customizeGrid() {
+                if(JSON.stringify(listingData) != "{}"){
+                    $(".home-fluid-thumbnail-grid").css("visibility", "visible");
+                    $(".home-fluid-thumbnail-grid-item").each(function (index) {
+                        if (!$(this).hasClass("customized")) {
 
-                    authorContainer.find(".info-container").prepend(authorLink);
-                    $(this).addClass("customized");
+                            $(".home-fluid-thumbnail-grid-author-avatar").remove();
+                            $(".home-fluid-thumbnail-grid-author-name").remove();
+
+                            var title = $(this).find(".fluid-thumbnail-grid-image-title");
+                            var authorContainer = $(this).find(".home-fluid-thumbnail-grid-author");
+                            var authorLink = $(this).find(".home-fluid-thumbnail-grid-author-name");
+                            var priceTag = $(this).find(".fluid-thumbnail-grid-image-price-container");
+                            var listingId = fetchListingId($(this).find(".fluid-thumbnail-grid-image-item-link").attr("href"));
+                            var listingInfo = listingData[listingId];
+                            priceTag.children().wrapAll("<div class='price-text'></div>");
+                            locationDetails = listingInfo.location;
+                            if(parseInt(listingInfo.squareFoot) > 0){
+                                locationDetails += " | " +  listingInfo.squareFoot + " sf"
+                            }
+
+                            priceTag.prepend("<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>"+ locationDetails +"</div></div>");
+
+                            authorContainer.prepend(title);
+                            authorContainer.append(priceTag);
+
+                            authorContainer.find(".info-container").prepend(authorLink);
+                            addImageSlider($(this), listingInfo.listingImages, listingId);
+                            $(this).addClass("customized");
+                        }
+                    });
                 }
-            });
-        }
-
-        function addCityAndImages(){
-            $(".home-fluid-thumbnail-grid-item").each(function (index) {
-                if (!$(this).hasClass("details-customized")) {
-                    url = $(this).children().find("a").attr("href");
-                    listingContent = httpGet(url);
-                    city = fetchCity(listingContent).split(", ").reverse()[2];
-                    var priceTag = $(this).find(".fluid-thumbnail-grid-image-price-container");
-
-                    if($(this).find(".fluid-thumbnail-grid-image-price-container .city-label").length == 0){
-                        priceTag.children().wrapAll("<div class='price-text'></div>")
-                        priceTag.prepend("<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>"+ city +"</div></div>");
-                    }
-                    $(this).addClass("details-customized");
-                }
-            });
-        }
-
-
-        setInterval(customizeGrid, 1000);
-        setInterval(addCityAndImages, 2000);
-
-    }
-    if($(".home-listings").length) {
-        setInterval(customizeListView(), 1000);
-        function customizeListView() {
-            $(".home-list-item").each(function (index) {
-                if (!$(this).hasClass("customized")) {
-                    $(".home-fluid-thumbnail-grid-author-avatar").remove();
-                    var url = $(this).children().find(".home-list-title a").attr("href");
-                    listingContent = httpGet(url);
-                    city = fetchCity(listingContent).split(", ").reverse()[2];
-
-                    cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + city + "</div></div>";
-                    $(this).children().find(".home-list-price-mobile").append(cityLabel);
-                    $(this).children().find(".home-list-avatar").append(cityLabel)
-                    $(this).addClass("customized");
-                }
-            });
-        }
-    }
-
-    function fetchCity(content){
-        return($(content).find("#origin_loc_google_address").val().trim());
-    }
-
-    function httpGet(theUrl)
-    {
-        var xmlHttp = null;
-        xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", theUrl, false );
-        xmlHttp.send( null );
-        return xmlHttp.responseText;
-    }
-
-
-    if ($("#profile-listings-list").length) {
-        // setInterval(customizePeopleGrid, 1000);
-        setInterval(addCityAndImages, 1000);
-    }
-
-    // Changing ZenDesk icon
-    changeZenDeskIcon();
-
-    function changeZenDeskIcon(){
-        var interval = setInterval(checkAndChangeIcon, 500);
-
-        function checkAndChangeIcon() {
-            if($("#launcher").length){
-                if($("#launcher").contents().find("#Embed .Icon").length){
-                    $("#launcher").contents().find("#Embed .Icon").html("<img class='chat-icon' src='https://raw.githubusercontent.com/bipashant/getapopup/master/logo-hd-25x25.png'/> ")
-                }
-                if($("#launcher").contents().find("#Embed .Icon--chat").length){
-                    $("#launcher").contents().find("#Embed .Icon--chat").html("<img class='chat-icon' src='https://raw.githubusercontent.com/bipashant/getapopup/master/logo-hd-25x25.png'/> ")
-                }
-                clearInterval(interval);
-                $("#launcher").contents().find("body").append("<style>.wrapperMobile-1Ets2 {padding: 0.75rem !important;}.wrapper-AtBcr{padding: 0.80857rem 1.57143rem;}.u-textInheritColor, .label-3kk12{color: #fff !important;}</style>");
             }
 
+            function addImageSlider(elm, images, listingId){
+                imageContainer = elm.find(".fluid-thumbnail-grid-image-image-container");
+                imageContainer.empty();
+                slideShowId = 'slideshow-' + listingId;
+                $(images).each(function(){
+                    imageContainer.append('<img class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="'+this+'">')
+                });
+                $('.' + slideShowId).not(":first").addClass('hide');
+                $('.' + slideShowId).first().addClass('visible');
+
+                if($(images).length > 1){
+                    imageContainer.append('<a class="prev">&#10094;</a>');
+                    imageContainer.append('<a class="next">&#10095;</a>');
+                }
+                imageContainer.attr("data-slideShowId", slideShowId);
+            }
+
+
+            setInterval(customizeGrid, 1000);
+
+
+            $("body").on('click', '.next', function(e){
+                e.preventDefault();
+                showSlides($(this).parent(), 1);
+            })
+
+            $("body").on('click', '.prev', function(e){
+                e.preventDefault();
+                showSlides($(this).parent(), -1);
+            })
+
+            function showSlides(container, threshold) {
+                var allImages = container.find("img");
+                var visibleImage= container.find("img.visible");
+                var visibleImageIndex = $('.'+ container.attr("data-slideshowid")).index(visibleImage);
+
+                firstImageIndex = 0;
+                lastImageIndex = allImages.length - 1;
+                nextPosition = visibleImageIndex + threshold;
+
+                if(nextPosition < firstImageIndex){
+                    nextPosition = lastImageIndex; // selecting last image
+                }
+
+                if(nextPosition > lastImageIndex){
+                    nextPosition = firstImageIndex; // selecting last image
+                }
+                $(visibleImage).removeClass("visible").addClass("hide");
+                $(allImages[nextPosition]).removeClass("hide").addClass("visible");
+            }
         }
-    }
-    // Deleting Listing author from listing details page
-    if($(".listing-details-container").length){
-        $(".col-4 .listing-author").parents(".row-with-divider").remove()
+
+        if($(".home-listings").length) {
+            function customizeListView() {
+                if(JSON.stringify(listingData) != "{}"){
+                    $(".home-list-item").each(function (index) {
+                        if (!$(this).hasClass("customized")) {
+                            $(".home-fluid-thumbnail-grid-author-avatar").remove();
+                            var url = $(this).children().find(".home-list-title a").attr("href");
+                            var listingId = fetchListingId(url);
+                            var listingInfo = listingData[listingId];
+                            locationDetails = listingInfo.location;
+                            if(parseInt(listingInfo.squareFoot) > 0){
+                                locationDetails += " | " +  listingInfo.squareFoot + " sf"
+                            }
+
+                            cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
+                            $(this).children().find(".home-list-price-mobile").append(cityLabel);
+                            $(this).children().find(".home-list-avatar").append(cityLabel)
+                            $(this).addClass("customized");
+                        }
+                    });
+                }
+            }
+
+            setInterval(customizeListView, 1000);
+        }
+
+        function fetchListingId(url){
+            var listingId = url.substring(
+                url.lastIndexOf("/listings/") + 1,
+                url.indexOf("-")
+            ).replace("listings/", '').trim();
+
+            return listingId;
+        }
     }
 });

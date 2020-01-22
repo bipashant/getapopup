@@ -27,6 +27,14 @@ var tid = setInterval( function () {
             paragraphs1[i].innerHTML = paragraphs1[i].innerHTML.replace(targets[j], replacement_text);
         }
     }
-    if ( document.readyState !== 'complete' && (paragraphs.length < 1 || paragraphs1.length < 1)) return;
+    
+    var unreadMessageTitles = document.getElementsByClassName("conversation-title-link-unread");
+
+    for (var i = 0; i < unreadMessageTitles.length; i++) {
+        for (var j = 0; j < targets.length; j++) {
+            unreadMessageTitles[i].innerHTML = unreadMessageTitles[i].innerHTML.replace(targets[j], replacement_text);
+        }
+    }
+    if ( document.readyState !== 'complete' && (paragraphs.length < 1 || paragraphs1.length < 1 || unreadMessageTitles.length)) return;
     clearInterval( tid );
 }, 1 );

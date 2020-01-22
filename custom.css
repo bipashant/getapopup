@@ -1,4 +1,4 @@
-/*.home-list-author-details, .home-list-author{display: none;}*/
+.home-list-author-details, .home-list-author{display: none;}
 .home-list-author-details, .home-fluid-thumbnail-grid-author-avatar-image{display: none;}
 
 .customized .home-list-avatar{
@@ -8,6 +8,7 @@
 
 .home-list-avatar .city-label.icon-with-text-container .icon-part, .home-list-price-mobile .city-label.icon-with-text-container .icon-part{
     top: 0.25em;
+    margin-right: 0;
 }
 
 .col-4 .listing-author{display: none;}
@@ -27,7 +28,9 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
     background: transparent;
     text-align: left;
     position: relative;
-    color: #757575
+    color: #757575;
+    float: left;
+    padding-left: 5px !important;
 }
 
 .home-fluid-thumbnail-grid-author-avatar-image{
@@ -57,8 +60,6 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
     overflow: hidden;
     height: 100px;
 }
-
-.fluid-thumbnail-grid-image-price-container{float: left;}
 
 .info-container{
     float: left;
@@ -91,3 +92,115 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
     font-weight: normal;
 }
 
+
+/* Slideshow container */
+.home-fluid-thumbnail-grid-narrow .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.home-fluid-thumbnail-grid-narrow .prev,.home-fluid-thumbnail-grid-narrow  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.hide{
+    display: none;
+}
+
+@media (min-width: 48em){
+    .home-list-author {
+        bottom: 4.5em;
+    }
+}
+
+
+.instagram-feeds-images{
+    position: relative;
+}
+
+.instafeed-overlay, .instafeed-shopify .instafeed-overlay {
+    opacity: 0;
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    transition: all .2s linear;
+}
+
+.instafeed-overlay::before, .instafeed-shopify .instafeed-overlay::before {
+    content: ' ';
+    opacity: 1;
+    background: url(https://6df2b785.ngrok.io/getapopup/images/instagram-icon.svg) no-repeat center center;
+    background-size: 20px 20px;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.instafeed-overlay::after, .instafeed-shopify .instafeed-overlay::after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .5;
+}
+
+.instafeed-container:hover .instafeed-overlay, .instafeed-shopify .instafeed-container:hover .instafeed-overlay {
+    opacity: 1;
+}
+.instagram-feeds{
+    padding-bottom: 0 !important;
+}
+
+/* This hides FB and Twitter sharing buttons on listing pages */
+.listing-social {display:none;}
+
+#home_toolbar-select-share-type {
+    display: none;
+}
+
+
+/**
+ * Featherlight - ultra slim jQuery lightbox
+ * Version 1.7.14 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2019, Noël Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483647;text-align:center;white-space:nowrap;cursor:pointer;background:#333;background:rgba(0,0,0,0)}.featherlight:last-of-type{background:rgba(0,0,0,.8)}.featherlight:before{content:'';display:inline-block;height:100%;vertical-align:middle}.featherlight .featherlight-content{position:relative;text-align:left;vertical-align:middle;display:inline-block;overflow:auto;padding:25px 25px 0;border-bottom:25px solid transparent;margin-left:5%;margin-right:5%;max-height:95%;background:#fff;cursor:auto;white-space:normal}.featherlight .featherlight-inner{display:block}.featherlight link.featherlight-inner,.featherlight script.featherlight-inner,.featherlight style.featherlight-inner{display:none}.featherlight .featherlight-close-icon{position:absolute;z-index:9999;top:0;right:0;line-height:25px;width:25px;cursor:pointer;text-align:center;font-family:Arial,sans-serif;background:#fff;background:rgba(255,255,255,.3);color:#000;border:0;padding:0}.featherlight .featherlight-close-icon::-moz-focus-inner{border:0;padding:0}.featherlight .featherlight-image{width:100%}.featherlight-iframe .featherlight-content{border-bottom:0;padding:0;-webkit-overflow-scrolling:touch}.featherlight iframe{border:0}.featherlight *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}@media only screen and (max-width:1024px){.featherlight .featherlight-content{margin-left:0;margin-right:0;max-height:98%;padding:10px 10px 0;border-bottom:10px solid transparent}}@media print{html.with-featherlight>*>:not(.featherlight){display:none}}

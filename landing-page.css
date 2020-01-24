@@ -181,3 +181,15 @@ html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}/*! normalize.c
 .listings__listings__2__listings__author-link:hover .listings__author-name {
     color: rgb(255,139,44);
 }
+
+@media (min-width: 1025px){
+    .instagram-feeds-images.listings__listing{
+        margin: 26px;
+        margin-bottom: 24px;
+        width: 20%;
+    }
+}
+
+.instagram-feeds-images.listings__listing{
+    border-radius: 0;
+}

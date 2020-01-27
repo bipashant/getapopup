@@ -46,7 +46,7 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
     padding: 5px;
     font-size: 15px;
 }
-.home-fluid-thumbnail-grid-author-name{
+.home-fluid-thumbnail-grid-author-name, .bubble-author, .bubble-avatar{
     display: none;
 }
 
@@ -235,3 +235,6 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
 .browsing-list-item-author-details .city-label.icon-with-text-container .icon-part{
     top: .25em !important;
 }
+
+.bubble-price{width: 100%; float: left;}
+.bubble-details{left: 0.45455em;}

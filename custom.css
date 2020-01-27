@@ -236,5 +236,9 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
     top: .25em !important;
 }
 
-.bubble-price{width: 100%; float: left;}
+.bubble-price{
+    width: 100%; 
+    float: left;
+    text-align: left;
+}
 .bubble-details{left: 0.45455em;}

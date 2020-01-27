@@ -24,18 +24,27 @@ $(document).ready(function(){
                             var listingId = fetchListingId($(this).find(".fluid-thumbnail-grid-image-item-link").attr("href"));
                             var listingInfo = listingData[listingId];
                             priceTag.children().wrapAll("<div class='price-text'></div>");
-                            locationDetails = listingInfo.location;
-                            if(parseInt(listingInfo.squareFoot) > 0){
-                                locationDetails += " | " +  listingInfo.squareFoot + " sf"
-                            }
 
-                            priceTag.prepend("<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>"+ locationDetails +"</div></div>");
+
+                            if(listingInfo){
+                                locationDetails = listingInfo.location;
+                                if(parseInt(listingInfo.squareFoot) > 0){
+                                    locationDetails += " | " +  listingInfo.squareFoot + " sf ";
+                                    if($(this).find(".home-fluid-thumbnail-grid-details-distance").length){
+                                        locationDetails += "| <b>" +  $(this).find(".home-fluid-thumbnail-grid-details-distance").text()+ '</b>';
+                                    }
+                                }
+
+                                priceTag.prepend("<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>"+ locationDetails +"</div></div>");
+
+                                addImageSlider($(this), listingInfo.listingImages, listingId);
+                            }
 
                             authorContainer.prepend(title);
                             authorContainer.append(priceTag);
 
                             authorContainer.find(".info-container").prepend(authorLink);
-                            addImageSlider($(this), listingInfo.listingImages, listingId);
+
                             $(this).addClass("customized");
                         }
                     });
@@ -99,21 +108,44 @@ $(document).ready(function(){
                 if(JSON.stringify(listingData) != "{}"){
                     $(".home-list-item").each(function (index) {
                         if (!$(this).hasClass("customized")) {
-                            $(".home-fluid-thumbnail-grid-author-avatar").remove();
                             var url = $(this).children().find(".home-list-title a").attr("href");
                             var listingId = fetchListingId(url);
                             var listingInfo = listingData[listingId];
-                            locationDetails = listingInfo.location;
-                            if(parseInt(listingInfo.squareFoot) > 0){
-                                locationDetails += " | " +  listingInfo.squareFoot + " sf"
-                            }
+                            if(listingInfo){
+                                locationDetails = listingInfo.location;
+                                if(parseInt(listingInfo.squareFoot) > 0){
+                                    locationDetails += " | " +  listingInfo.squareFoot + " sf"
+                                }
+                                cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
+                                $(this).children().find(".home-list-price-mobile").append(cityLabel);
+                                $(this).children().find(".home-list-avatar").append(cityLabel)
 
-                            cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
-                            $(this).children().find(".home-list-price-mobile").append(cityLabel);
-                            $(this).children().find(".home-list-avatar").append(cityLabel)
+                            }
                             $(this).addClass("customized");
                         }
                     });
+
+                    // same process when location search, class has different names
+                    $(".browsing-list-item").each(function (index) {
+                        if (!$(this).hasClass("customized")) {
+                            var url = $(this).children().find(".browsing-list-item-title a").attr("href");
+                            var listingId = fetchListingId(url);
+                            var listingInfo = listingData[listingId];
+                            if(listingInfo){
+                                locationDetails = listingInfo.location;
+                                if(parseInt(listingInfo.squareFoot) > 0){
+                                    locationDetails += " | " +  listingInfo.squareFoot + " sf"
+                                }
+                                cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
+                                $(this).children().find(".browsing-list-item-price-mobile").append(cityLabel);
+                                $(this).children().find(".browsing-list-item-author").append(cityLabel)
+
+                            }
+                            $(this).addClass("customized");
+                        }
+                    });
+
+
                 }
             }
 

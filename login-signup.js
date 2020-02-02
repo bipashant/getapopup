@@ -134,6 +134,17 @@ $(document).ready(function(){
         var content = httpGet('https://getapopup.com/en/login');
         var formElements = $(content).find(".wrapper");
         $.featherlight($(formElements), {});
+        
+        $("#main_person_login").attr("placeholder", "name@address.com");
+        $("#main_person_password").attr("placeholder", "Enter your password");
+
+
+        $("#main_person_login").wrap( "<div class='login-form-control login-username'></div>" );
+        $("#main_person_password").wrap( "<div class='login-form-control login-password'></div>" );
+
+        $('<div class="input-group-append"><span class="input-group-text"><i class="fa fa-envelope-o"></i></span></div>').prependTo($(".login-username"))
+        $('<div class="input-group-append"><span class="input-group-text"><i class="fa fa-lock"></i></span></div>').prependTo($(".login-password"));
+
 
         $(".featherlight-content #password_forgotten_link").click(function(){
             $("#password_forgotten").show();

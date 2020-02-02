@@ -292,3 +292,10 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
     background-position: right center;
 
 }
+
+@media screen and (max-width: 768px) {
+
+.feedback-image-background, .login-image-background, .signup-image-background{display: none;}
+
+}
+

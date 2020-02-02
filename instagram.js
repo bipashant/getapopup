@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    if($("#hero__hero__0").length || $(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length || $('.home-map').length) {
+    if($(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length || $('.home-map').length) {
         var instaImages = [
             {
                 image: 'https://raw.githubusercontent.com/bipashant/getapopup/master/1.jpg',

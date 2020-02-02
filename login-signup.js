@@ -157,4 +157,8 @@ $(document).ready(function(){
             $("#email").focus();
         })
     }
+    
+    if($(".login-form").length){
+        $(".flash-notifications").prependTo(".login-form")
+    }
 });

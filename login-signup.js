@@ -1,12 +1,5 @@
 
 $(document).ready(function(){
-
-
-    var loginPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/1.jpg";
-    var signPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/2.jpg";
-    var feedbackPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/3.jpg";
-
-
     loginPageDesign();
     function loginPageDesign(){
         if($("#main_person_login").length){

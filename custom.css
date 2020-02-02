@@ -242,3 +242,53 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
     text-align: left !important;
 }
 .bubble-details{left: 0.45455em;}
+@media (min-width: 1025px){
+    .instagram-feeds-images.listings__listing{
+        margin: 26px;
+        margin-bottom: 24px;
+        width: 20%;
+    }
+}
+
+.instagram-feeds-images.listings__listing{
+    border-radius: 0;
+}
+
+.browsing-list-item-author-details{
+    display:  none;
+}
+.home-fluid-thumbnail-grid-details-author-name{
+    opacity: 0;
+}
+.home-fluid-thumbnail-grid-details-distance{
+    display: none;
+}
+
+.fluid-thumbnail-grid-image-price-container{
+    max-width: 100%;
+    width: auto;
+}
+.browsing-list-item-author-details .city-label.icon-with-text-container .icon-part{
+    top: .25em !important;
+}
+
+.login-form-control input{
+    padding-left: 32px;
+    position: relative;
+}
+
+.login-form-control .input-group-append {
+    position: absolute;
+    z-index: 2;
+    padding: 10px;
+}
+
+.new_person #person_family_name, .new_person label[for="person_family_name"], .new_person label[for="person_given_name"] {
+    display: none;
+}
+
+.feedback-image-background, .login-image-background, .signup-image-background{
+    background-size: cover;
+    background-position: right center;
+
+}

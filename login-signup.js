@@ -134,11 +134,12 @@ $(document).ready(function(){
         var content = httpGet('https://getapopup.com/en/login');
         var formElements = $(content).find(".wrapper");
         $.featherlight($(formElements), {});
-        
+           
+        debugger; 
         $("#main_person_login").attr("placeholder", "name@address.com");
         $("#main_person_password").attr("placeholder", "Enter your password");
 
-
+        
         $("#main_person_login").wrap( "<div class='login-form-control login-username'></div>" );
         $("#main_person_password").wrap( "<div class='login-form-control login-password'></div>" );
 

@@ -42,7 +42,7 @@ $(document).ready(function(){
     signupPageDesign();
 
     function signupPageDesign(){
-        if($("#new_person").length){
+        if($("#person_email").length){
             $('.new_person label[for="person_given_name"]').text("Full Name").show();
             $("#person_family_name").val(" ");
             $("#person_email").attr("placeholder", "name@address.com");

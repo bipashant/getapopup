@@ -1,8 +1,8 @@
 
 
-var loginPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/1.jpg";
-var signPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/2.jpg";
-var feedbackPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/3.jpg";
+var loginPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/login.jpg";
+var signPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/signup.jpg";
+var feedbackPageImageURL = "https://raw.githubusercontent.com/bipashant/getapopup/master/contact-us.jpg";
 
 var instaImages = [
             {

@@ -13,7 +13,7 @@ $(document).ready(function(){
             existingData = data;
         });
 
-        var listingDetailstimer = setInterval(uploadListingDetails, 1000);
+        var listingDetailstimer = setInterval(uploadListingDetails, 100);
 
         function uploadListingDetails(){
 

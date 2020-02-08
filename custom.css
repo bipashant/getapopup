@@ -45,6 +45,8 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
     height: auto;
     padding: 5px;
     font-size: 15px;
+    max-height: 39px;
+    overflow: hidden;
 }
 .home-fluid-thumbnail-grid-author-name, .bubble-author, .bubble-avatar{
     display: none;

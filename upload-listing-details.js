@@ -11,14 +11,11 @@ $(document).ready(function(){
         existingData = {};
         $.get("https://api.myjson.com/bins/ihyt6", function(data, textStatus, jqXHR) {
             existingData = data;
+            uploadListingDetails();
         });
 
-        var listingDetailstimer = setInterval(uploadListingDetails, 100);
-
         function uploadListingDetails(){
-
             if(JSON.stringify(existingData) != "{}"){
-                clearInterval(listingDetailstimer);
                 $.ajax({
                     url:"https://api.myjson.com/bins/ihyt6",
                     type:"PUT",

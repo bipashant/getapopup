@@ -41,7 +41,11 @@ $(document).ready(function(){
         }
 
         function listingId() {
-            return($("#listing_id").val());
+            lId = $("#listing_id").val();
+            if(lId == undefined){
+                lId = fetchListingId(location.href);
+            }
+                return($("#listing_id").val());
         }
 
         function listingImages(){
@@ -66,6 +70,15 @@ $(document).ready(function(){
             });
 
             return sqFootValue;
+        }
+
+        function fetchListingId(url){
+            var listingId = url.substring(
+                url.lastIndexOf("/listings/") + 1,
+                url.indexOf("-")
+            ).replace("listings/", '').trim();
+
+            return listingId;
         }
     }
 });

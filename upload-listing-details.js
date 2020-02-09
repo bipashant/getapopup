@@ -45,7 +45,7 @@ $(document).ready(function(){
             if(lId == undefined){
                 lId = fetchListingId();
             }
-                return($("#listing_id").val());
+            return(lId);
         }
 
         function listingImages(){
@@ -73,7 +73,6 @@ $(document).ready(function(){
         }
 
         function fetchListingId(){
-            debugger;
             url = window.location.href;
             var listingId = url.substring(
                 url.lastIndexOf("/listings/") + 1,

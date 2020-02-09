@@ -40,7 +40,7 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
 .fluid-thumbnail-grid-image-title{
     position: relative;
     color: #000;
-    display: flex;
+    display: block;
     align-items: center;
     height: auto;
     padding: 5px;

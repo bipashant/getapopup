@@ -74,7 +74,7 @@ $(document).ready(function(){
 
         function fetchListingId(){
             debugger;
-            url = location.href;
+            url = window.location.href;
             var listingId = url.substring(
                 url.lastIndexOf("/listings/") + 1,
                 url.indexOf("-")

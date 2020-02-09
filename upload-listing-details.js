@@ -43,7 +43,7 @@ $(document).ready(function(){
         function listingId() {
             lId = $("#listing_id").val();
             if(lId == undefined){
-                lId = fetchListingId(location.href);
+                lId = fetchListingId();
             }
                 return($("#listing_id").val());
         }
@@ -72,7 +72,8 @@ $(document).ready(function(){
             return sqFootValue;
         }
 
-        function fetchListingId(url){
+        function fetchListingId(){
+            url = location.href;
             var listingId = url.substring(
                 url.lastIndexOf("/listings/") + 1,
                 url.indexOf("-")

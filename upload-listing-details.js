@@ -41,10 +41,7 @@ $(document).ready(function(){
         }
 
         function listingId() {
-            lId = $("#listing_id").val();
-            if(lId == undefined){
-                lId = fetchListingId();
-            }
+            var lId = fetchListingId();
             return(lId);
         }
 

@@ -7,19 +7,18 @@ $(document).ready(function(){
     if($(".listing-details-container").length){
 
         $(".col-4 .listing-author").parents(".row-with-divider").remove()
-
-        existingData = {};
         $.get("https://api.myjson.com/bins/ihyt6", function(data, textStatus, jqXHR) {
-            existingData = data;
-            uploadListingDetails();
+            uploadListingDetails(data);
         });
 
-        function uploadListingDetails(){
+        function uploadListingDetails(existingData){
+            listingData = currentListingData();
+            existingData[listingId()] = listingData;
             if(JSON.stringify(existingData) != "{}"){
                 $.ajax({
                     url:"https://api.myjson.com/bins/ihyt6",
                     type:"PUT",
-                    data:JSON.stringify(currentListingData()),
+                    data:JSON.stringify(existingData),
                     contentType:"application/json; charset=utf-8",
                     dataType:"json",
                     success: function(data, textStatus, jqXHR){
@@ -32,12 +31,11 @@ $(document).ready(function(){
 
 
         function currentListingData(){
-            existingData[listingId()] = {
+            return({
                 listingImages: listingImages(),
                 location: location(),
                 squareFoot: squareFoot()
-            }
-            return existingData;
+            })
         }
 
         function listingId() {

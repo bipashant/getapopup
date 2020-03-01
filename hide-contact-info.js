@@ -85,7 +85,7 @@ $(document).ready(function(){
  
     setInterval(function(){ 
         $("a[href$='/infos/about']").remove();
-          $("a[href$='/infos/how_to_use']").remove();
+          //$("a[href$='/infos/how_to_use']").remove();
         }, 10); 
 });
 

@@ -82,10 +82,5 @@ $(document).ready(function(){
             $("#message").val(userContent);
         });
     }
- 
-    setInterval(function(){ 
-        $("a[href$='/infos/about']").remove();
-          //$("a[href$='/infos/how_to_use']").remove();
-        }, 10); 
 });
 

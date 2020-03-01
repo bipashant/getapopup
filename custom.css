@@ -55,10 +55,8 @@ body{font-family: "Proxima Nova Soft", Helvetica, sans !important;}
 .home-fluid-thumbnail-grid-author{
     background: #fff;
     border-radius: 0;
-    border: 1px solid #e7eaf3;
+    border: none;
     border-top: 0;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
     overflow: hidden;
     height: 100px;
 }

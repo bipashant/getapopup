@@ -82,10 +82,10 @@ $(document).ready(function(){
             $("#message").val(userContent);
         });
     }
-    setTimeout(function(){ 
-      $("a[href$='/infos/about']").remove();
-      $("a[href$='/infos/how_to_use']").remove();
-    }, 1000);
-    
+ 
+    setInterval(function(){ 
+        $("a[href$='/infos/about']").remove();
+          $("a[href$='/infos/how_to_use']").remove();
+        }, 10); 
 });
 

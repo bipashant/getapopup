@@ -21,9 +21,11 @@ $(document).ready(function(){
                             var authorContainer = $(this).find(".home-fluid-thumbnail-grid-author");
                             var authorLink = $(this).find(".home-fluid-thumbnail-grid-author-name");
                             var priceTag = $(this).find(".fluid-thumbnail-grid-image-price-container");
-                            var listingId = fetchListingId($(this).find(".fluid-thumbnail-grid-image-item-link").attr("href"));
+                            var listingUrl = $(this).find(".fluid-thumbnail-grid-image-item-link").attr("href");
+                            var listingId = fetchListingId(listingUrl);
                             var listingInfo = listingData[listingId];
                             priceTag.children().wrapAll("<div class='price-text'></div>");
+                            $(this).children().wrapAll("<a href='"+listingUrl+"'> </a>");
 
 
                             if(listingInfo){
@@ -122,6 +124,7 @@ $(document).ready(function(){
 
                             }
                             $(this).addClass("customized");
+                            $(this).children().wrapAll("<a href='"+ url +"'> </a>");
                         }
                     });
 
@@ -138,10 +141,11 @@ $(document).ready(function(){
                                 }
                                 cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
                                 $(this).children().find(".browsing-list-item-price-mobile").append(cityLabel);
-                                $(this).children().find(".browsing-list-item-author").append(cityLabel)
+                                $(this).children().find(".browsing-list-item-author").append(cityLabel);
 
                             }
                             $(this).addClass("customized");
+                            $(this).children().wrapAll("<a href='"+ url +"'> </a>");
                         }
                     });
 

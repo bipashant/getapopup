@@ -1,11 +1,18 @@
 
 $(document).ready(function(){
     if( $(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length){
-        listingData = {};
-        $.get("https://api.myjson.com/bins/ihyt6", function(data, textStatus, jqXHR) {
-            console.log(data);
-            listingData = data;
-        });
+        var listingData = {};
+        var JSONBLOB_URL = 'https://extendsclass.com/api/json-storage/bin/eebdfad';
+        var listingData = {};
+        
+        const request = new XMLHttpRequest();
+        request.open("GET", JSONBLOB_URL, true);
+        request.onreadystatechange = function(){
+            if(request.responseText.length){
+                listingData = JSON.parse(request.responseText);
+            }
+        };
+        request.send();
 
         if($(".home-fluid-thumbnail-grid-narrow").length){
             function customizeGrid() {

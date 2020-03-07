@@ -7,6 +7,8 @@ $(document).ready(function(){
         
         const request = new XMLHttpRequest();
         request.open("GET", JSONBLOB_URL, true);
+        request.setRequestHeader("Content-Type", 'application/json');
+        request.setRequestHeader("Accept", 'application/json');
         request.onreadystatechange = function(){
             if(request.responseText.length){
                 listingData = JSON.parse(request.responseText);

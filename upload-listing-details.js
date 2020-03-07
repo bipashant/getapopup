@@ -1,34 +1,28 @@
 
 $(document).ready(function(){
-    // Adding listing details to the https://api.myjson.com/bins/ihyt6
-
+    // Adding listing details to the https://extendsclass.com/api/json-storage/bin/eebdfad
+    var JSONBLOB_URL = 'https://extendsclass.com/api/json-storage/bin/eebdfad'
 
     // Deleting Listing author from listing details page
     if($(".listing-details-container").length){
 
-        $(".col-4 .listing-author").parents(".row-with-divider").remove()
-        $.get("https://api.myjson.com/bins/ihyt6", function(data, textStatus, jqXHR) {
-            uploadListingDetails(data);
-        });
+        $(".col-4 .listing-author").parents(".row-with-divider").remove();
+        uploadListingDetails();
 
-        function uploadListingDetails(existingData){
-            listingData = currentListingData();
-            existingData[listingId()] = listingData;
-            if(JSON.stringify(existingData) != "{}"){
-                $.ajax({
-                    url:"https://api.myjson.com/bins/ihyt6",
-                    type:"PUT",
-                    data:JSON.stringify(existingData),
-                    contentType:"application/json; charset=utf-8",
-                    dataType:"json",
-                    success: function(data, textStatus, jqXHR){
-                        console.log("Data Uploaded")
-                    }
-                });
-            }
-
+        function uploadListingDetails(){
+            listingData = {};
+            listingData[listingId()] = currentListingData();
+            const request = new XMLHttpRequest();
+            request.open("PATCH", JSONBLOB_URL, true);
+            request.setRequestHeader("Content-Type", 'application/json');
+            request.setRequestHeader("Accept", 'application/json');
+            request.send(JSON.stringify(listingData));
+            request.onreadystatechange = function(){
+                if(request.readyState==4 && request.status==200){
+                    console.log("Data Uploaded");
+                }
+            };
         }
-
 
         function currentListingData(){
             return({

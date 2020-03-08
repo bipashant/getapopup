@@ -3,12 +3,6 @@ $(document).ready(function(){
     var JSONBLOB_URL = 'https://extendsclass.com/api/json-storage/bin/eebdfad';
 
     if( $(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length){
-        listingData = {};
-        // $.get("https://api.myjson.com/bins/ihyt6", function(data, textStatus, jqXHR) {
-        //     console.log(data);
-        //     listingData = data;
-        // });
-
         var listingData = {};
         const request = new XMLHttpRequest();
         request.open("GET", JSONBLOB_URL, true);

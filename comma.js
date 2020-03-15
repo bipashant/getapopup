@@ -32,25 +32,26 @@ $(document).ready(function() {
                 $("#custom_fields_118893").val(input);
             })
         }
+        
+    }
 
-        function formatNumber(x) {
-            var parts = x.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            return parts.join(".");
-        }
+    function formatNumber(x) {
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
 
-        if($(".listing-details-container").length){
-            var sqFootLabel = "What is the space size? (in sq. ft.):";
-            var sqFootValue = '';
-            $(".listing-details-container b").each(function () {
-                if($(this).text() == sqFootLabel){
-                    sqFootValue = $(this).parent().html().replace('<b>'+ sqFootLabel + '</b>', '').trim();
-                    formattedSqFoot = formatNumber(sqFootValue);
-                    $(this).parent().html('<b>'+ sqFootLabel + '</b> ' + formattedSqFoot);
-                }
-            });
+    if($(".listing-details-container").length){
+        var sqFootLabel = "What is the space size? (in sq. ft.):";
+        var sqFootValue = '';
+        $(".listing-details-container b").each(function () {
+            if($(this).text() == sqFootLabel){
+                sqFootValue = $(this).parent().html().replace('<b>'+ sqFootLabel + '</b>', '').trim();
+                formattedSqFoot = formatNumber(sqFootValue);
+                $(this).parent().html('<b>'+ sqFootLabel + '</b> ' + formattedSqFoot);
+            }
+        });
 
-        }
     }
 
 

@@ -46,7 +46,7 @@ $(document).ready(function() {
                 if($(this).text() == sqFootLabel){
                     sqFootValue = $(this).parent().html().replace('<b>'+ sqFootLabel + '</b>', '').trim();
                     formattedSqFoot = formatNumber(sqFootValue);
-                    $(this).parent().html('<b>'+ sqFootLabel + '</b>: ' + formattedSqFoot);
+                    $(this).parent().html('<b>'+ sqFootLabel + '</b> ' + formattedSqFoot);
                 }
             });
 

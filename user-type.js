@@ -107,7 +107,7 @@ $(document).ready(function(){
 
                 }
                 return valid;
-            }, jQuery.validator.format("As a brand you should use the company email."));
+            }, jQuery.validator.format("As a brand, you're required to use your company email."));
         }
     }
 });

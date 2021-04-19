@@ -45,7 +45,7 @@ $(document).ready(function(){
                                 if(listingInfo){
                                     locationDetails = listingInfo.location;
                                     if(parseInt(listingInfo.squareFoot) > 0){
-                                        locationDetails += " | " +  formatNumber(parseInt(listingInfo.squareFoot) + " sf ";
+                                        locationDetails += " | " +  formatNumber(listingInfo.squareFoot) + " sf ";
                                         if($(this).find(".home-fluid-thumbnail-grid-details-distance").length){
                                             locationDetails += "| <b>" +  $(this).find(".home-fluid-thumbnail-grid-details-distance").text()+ '</b>';
                                         }
@@ -130,7 +130,7 @@ $(document).ready(function(){
                                 if(listingInfo){
                                     locationDetails = listingInfo.location;
                                     if(parseInt(listingInfo.squareFoot) > 0){
-                                        locationDetails += " | " +  listingInfo.squareFoot + " sf"
+                                        locationDetails += " | " +  formatNumber(listingInfo.squareFoot) + " sf"
                                     }
                                     cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
                                     $(this).children().find(".home-list-price-mobile").append(cityLabel);
@@ -151,7 +151,7 @@ $(document).ready(function(){
                                 if(listingInfo){
                                     locationDetails = listingInfo.location;
                                     if(parseInt(listingInfo.squareFoot) > 0){
-                                        locationDetails += " | " +  listingInfo.squareFoot + " sf"
+                                        locationDetails += " | " +  formatNumber(listingInfo.squareFoot) + " sf"
                                     }
                                     cityLabel = "<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>" + locationDetails + "</div></div>";
                                     $(this).children().find(".browsing-list-item-price-mobile").append(cityLabel);

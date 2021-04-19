@@ -13,6 +13,12 @@ $(document).ready(function(){
             }
         };
         request.send();
+        
+        function formatNumber(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
 
         function customizeListing(){
             if($(".home-fluid-thumbnail-grid-narrow").length){
@@ -39,7 +45,7 @@ $(document).ready(function(){
                                 if(listingInfo){
                                     locationDetails = listingInfo.location;
                                     if(parseInt(listingInfo.squareFoot) > 0){
-                                        locationDetails += " | " +  listingInfo.squareFoot + " sf ";
+                                        locationDetails += " | " +  formatNumber(parseInt(listingInfo.squareFoot) + " sf ";
                                         if($(this).find(".home-fluid-thumbnail-grid-details-distance").length){
                                             locationDetails += "| <b>" +  $(this).find(".home-fluid-thumbnail-grid-details-distance").text()+ '</b>';
                                         }

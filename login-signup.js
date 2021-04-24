@@ -26,7 +26,7 @@ $(document).ready(function(){
         if($("#main_person_login").length){
             $(".wrapper").addClass("row login-form-wrapper");
             $(".login-element-wrapper").addClass("col-6");
-            $("<div class='login-image-background col-6'></div>").appendTo($(".wrapper"));
+            $("<div class='col-6'><div class='row login-image-background'></div><div class='row text-center login-image-background-text'>Samsung x GetaPopUp featured property</div></div>").appendTo($(".wrapper"));
             $(".login-image-background").css("height", $(".login-element-wrapper").height() + "px");
             $(".login-image-background").css("background-image", 'url(' + loginPageImageURL + ')');
         }
@@ -75,7 +75,7 @@ $(document).ready(function(){
 
             $(".wrapper").addClass("row feedback-form-wrapper");
             $(".new-feedback-form").addClass("col-6");
-            $("<div class='feedback-image-background col-6'></div>").appendTo($(".wrapper"));
+            $("<div class='col-6'><div class='row feedback-image-background'></div><div class='row text-center feedback-image-background-text'>Garden of Life x 8175 Melrose Ave</div></div>").appendTo($(".wrapper"));
             $(".feedback-image-background").css("height", $(".new-feedback-form").height() + "px");
             $(".feedback-image-background").css("background-image", 'url(' + feedbackPageImageURL + ')');
 
@@ -128,7 +128,6 @@ $(document).ready(function(){
         var formElements = $(content).find(".wrapper");
         $.featherlight($(formElements), {});
            
-        debugger; 
         $("#main_person_login").attr("placeholder", "name@address.com");
         $("#main_person_password").attr("placeholder", "Enter your password");
 

@@ -3,4 +3,9 @@ $(document).ready(function(){
         // loading landing page css only in the marketplace. it is used to show the instagram thumbnail on the grid page view.
         $("head").append('<link href="https://rawcdn.githack.com/bipashant/getapopup/3682e83/landing-page.css" rel="stylesheet"/>');
     }
+   
+   // Move listing Image to full width
+     if($(".listing-details-container").length){
+        $(".listing-details-container .row").first().prependTo($(".listing-details-container").parent())
+    }
 });

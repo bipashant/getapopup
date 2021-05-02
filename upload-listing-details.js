@@ -46,7 +46,10 @@ $(document).ready(function(){
         }
 
         function location(){
-            return($(document).find("#origin_loc_google_address").val().trim().split(", ").reverse()[2]);
+            var address = $(document).find("#origin_loc_google_address").val();
+            if(address){
+                return(address.trim().split(", ").reverse()[2]);
+            }            
         }
 
         function squareFoot(){

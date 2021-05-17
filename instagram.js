@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    if($("#hero__hero__0').length) {
+    if($("#hero__hero__0").length) {
         
         instagramContent = "<section class='instagram-feeds listings__section listings__section--zebra' style=' '> <div class='listings__content'> <h1 class='listings__title'>Follow us on Instagram</h1> <div class='listings__listings'>";
         $(instaImages).each(function () {

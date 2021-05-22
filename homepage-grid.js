@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    var JSONBLOB_URL = 'https://extendsclass.com/api/json-storage/bin/b237a7059dea';
+    var JSONBLOB_URL = 'https://json.extendsclass.com/bin/b237a7059dea';
 
     if( $(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length){
         var listingData = {};

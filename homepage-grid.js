@@ -181,4 +181,11 @@ $(document).ready(function(){
             return listingId;
         }
     }
+    
+  var priceLabel = $('#price-filter-min-value')
+  if(priceLabel.length){
+    var mainWrapper = priceLabel.parent().parent()
+    mainWrapper.find(".left .custom-filter-min-max-title").text('Min: $')
+    mainWrapper.find(".right .custom-filter-min-max-title").text('Max: $')
+  }
 });

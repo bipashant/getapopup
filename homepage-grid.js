@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    var JSONBLOB_URL = 'https://extendsclass.com/api/json-storage/bin/eebdfad';
+    var JSONBLOB_URL = 'https://extendsclass.com/api/json-storage/bin/b237a7059dea';
 
     if( $(".home-fluid-thumbnail-grid-narrow").length || $(".home-listings").length){
         var listingData = {};
@@ -72,7 +72,7 @@ $(document).ready(function(){
                     imageContainer.empty();
                     slideShowId = 'slideshow-' + listingId;
                     $(images).each(function(){
-                        imageContainer.append('<img class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="'+this+'">')
+                        imageContainer.append('<img class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="https://user-assets.sharetribe.com/images/listing_images/images'+ this+'">')
                     });
                     $('.' + slideShowId).not(":first").addClass('hide');
                     $('.' + slideShowId).first().addClass('visible');

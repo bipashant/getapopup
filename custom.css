@@ -299,3 +299,59 @@ html.with-featherlight{overflow:hidden}.featherlight{display:none;position:fixed
 
 }
 
+
+/* Listing details page */
+
+.listing-image-carousel {
+	margin: 0 auto !important;
+	padding:0 !important;
+	max-height:450px !important;
+	height: 450px !important;
+	margin: 0 auto !important;
+	max-width:1400px !important;
+}
+
+.listing-image{
+	max-height:450px !important;
+	height: 450px !important;
+	width:100% !important;
+	object-fit:contain;
+	padding:0 !important;
+}
+
+.listing-image-thumbnail-stripe, .listing-image-thumbnail-stripe > div{
+	margin: 0 auto !important;
+	max-width:1400px !important;
+}
+
+
+.listing-image-frame{
+	background: #eeeeee !important;
+	padding:0 !important;
+	height:100%;
+}
+
+.listing-details-page .page-content{
+padding-top: 10px !important;
+	background: #eeeeee !important;
+
+}
+
+
+.listing-details-page .marketplace-lander .marketplace-title-header h1 {
+    text-align: center;
+}
+
+.listing-details-page .listing-details-container {
+    padding: 30px;
+}
+
+@media screen and (max-width:767px){
+	.listing-image-carousel,.listing-image {
+	max-height:320px !important;
+	height: 320px !important;
+	object-fit:cover;
+  }
+}
+/* Listing details page */
+

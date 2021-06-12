@@ -11,7 +11,6 @@ $(document).ready(function(){
         function uploadListingDetails(){
             listingData = {};
             listingData[listingId()] = currentListingData();
-            debugger;
             const request = new XMLHttpRequest();
             request.open("PATCH", JSONBLOB_URL, true);
             request.setRequestHeader("Content-Type", 'application/json');

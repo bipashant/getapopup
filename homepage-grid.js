@@ -128,7 +128,7 @@ $(document).ready(function(){
                                 var listingId = fetchListingId(url);
                                 var listingInfo = listingData[listingId];
                                 if(listingInfo){
-                                    locationDetails = listingInfo.location;
+                                    locationDetails = listingInfo.city + ', ' + listingInfo.state;
                                     if(parseInt(listingInfo.squareFoot) > 0){
                                         locationDetails += " | " +  formatNumber(listingInfo.squareFoot) + " sf"
                                     }
@@ -149,7 +149,7 @@ $(document).ready(function(){
                                 var listingId = fetchListingId(url);
                                 var listingInfo = listingData[listingId];
                                 if(listingInfo){
-                                    locationDetails = listingInfo.location;
+                                    locationDetails = listingInfo.city + ', ' + listingInfo.state;
                                     if(parseInt(listingInfo.squareFoot) > 0){
                                         locationDetails += " | " +  formatNumber(listingInfo.squareFoot) + " sf"
                                     }

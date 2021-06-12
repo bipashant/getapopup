@@ -1,8 +1,6 @@
 
 $(document).ready(function(){
     // Adding listing details to the https://json.extendsclass.com/bin/b237a7059dea
-    var JSONBLOB_URL = 'https://json.extendsclass.com/bin/b237a7059dea';
-    var GOOGLE_MAP_API = 'AIzaSyBVLoR_KopEdL3ojMv6_mJ6XoiMFt9mIbI';
   
     // Deleting Listing author from listing details page
     if($(".listing-details-container").length){

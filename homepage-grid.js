@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 
                                 if(listingInfo){
-                                    locationDetails = listingInfo.location;
+                                    locationDetails = listingInfo.city + ', ' + listingInfo.state;
                                     if(parseInt(listingInfo.squareFoot) > 0){
                                         locationDetails += " | " +  formatNumber(listingInfo.squareFoot) + " sf ";
                                         if($(this).find(".home-fluid-thumbnail-grid-details-distance").length){

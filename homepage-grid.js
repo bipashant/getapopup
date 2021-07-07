@@ -51,7 +51,7 @@ $(document).ready(function(){
 
                                     priceTag.prepend("<div class='city-label icon-with-text-container'><i class='fa fa-map-marker icon-part'></i> <div class='text-part'>"+ locationDetails +"</div></div>");
 
-                                    addImageSlider($(this), listingInfo.listingImages, listingId);
+                                    addImageSlider($(this), listingInfo.listingImages, listingId, title);
                                 }
 
                                 authorContainer.prepend(title);
@@ -65,12 +65,12 @@ $(document).ready(function(){
                     }
                 }
 
-                function addImageSlider(elm, images, listingId){
+                function addImageSlider(elm, images, listingId, title){
                     imageContainer = elm.find(".fluid-thumbnail-grid-image-image-container");
                     imageContainer.empty();
                     slideShowId = 'slideshow-' + listingId;
                     $(images).each(function(){
-                        imageContainer.append('<img class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="https://user-assets.sharetribe.com/images/listing_images/images/'+ this+'">')
+                        imageContainer.append('<img alt="'+ title.text().replaceAll('\n', '') +'"class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="https://user-assets.sharetribe.com/images/listing_images/images/'+ this+'">')
                     });
                     $('.' + slideShowId).not(":first").addClass('hide');
                     $('.' + slideShowId).first().addClass('visible');

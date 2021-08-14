@@ -70,7 +70,7 @@ $(document).ready(function(){
                     imageContainer.empty();
                     slideShowId = 'slideshow-' + listingId;
                     $(images).each(function(){
-                        imageContainer.append('<img alt="'+ title.text().replaceAll('\n', '') +'"class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="https://user-assets.sharetribe.com/images/listing_images/images/'+ this+'">')
+                        imageContainer.append('<img alt="' + title.text().replaceAll('\n', '').replaceAll('"', '') + '"class="'+ slideShowId +' fluid-thumbnail-grid-image-image" src="https://user-assets.sharetribe.com/images/listing_images/images/'+ this+'">')
                     });
                     $('.' + slideShowId).not(":first").addClass('hide');
                     $('.' + slideShowId).first().addClass('visible');
